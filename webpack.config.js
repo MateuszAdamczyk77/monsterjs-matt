@@ -2,6 +2,7 @@
 var path = require('path');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+const sass = require('sass');
 
 
 module.exports = (env, argv = {}) => {
@@ -81,7 +82,12 @@ module.exports = (env, argv = {}) => {
               }
             },
             // Compiles Sass to CSS
-            'sass-loader',
+            {
+              loader: 'sass-loader',
+              options: {
+                implementation: sass
+              }
+            },
           ],
         },
       ]
